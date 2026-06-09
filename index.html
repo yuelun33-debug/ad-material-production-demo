@@ -103,6 +103,87 @@
       display: block;
     }
 
+    .input-mode {
+      display: grid;
+      gap: 8px;
+      margin: 14px 0;
+    }
+
+    .mode-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px;
+      background: #fff;
+      cursor: pointer;
+    }
+
+    .mode-card input {
+      width: auto;
+      height: auto;
+      margin: 0 7px 0 0;
+    }
+
+    .mode-card:has(input:checked) {
+      border-color: var(--blue);
+      background: #eff6ff;
+      box-shadow: inset 0 0 0 1px var(--blue);
+    }
+
+    .module-list {
+      margin-top: 14px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .detected-dims {
+      margin-top: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 12px;
+      display: none;
+    }
+
+    .detected-dims.active {
+      display: block;
+    }
+
+    .dim-chip-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 10px 0;
+    }
+
+    .dim-chip {
+      border: 1px solid #bfdbfe;
+      border-radius: 999px;
+      padding: 5px 8px;
+      background: #eff6ff;
+      color: #1e3a8a;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .module-button {
+      width: 100%;
+      height: auto;
+      min-height: 38px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      color: #344054;
+      text-align: left;
+      padding: 9px 10px;
+      font-weight: 700;
+    }
+
+    .module-button.active {
+      border-color: var(--blue);
+      background: #eff6ff;
+      color: #1d4ed8;
+    }
+
     label {
       display: block;
       margin-bottom: 12px;
@@ -201,6 +282,44 @@
       box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
     }
 
+    .sheet-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .sheet-head h3 {
+      margin: 0;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      height: 24px;
+      padding: 0 8px;
+      border-radius: 999px;
+      background: #ecfdf3;
+      color: #067647;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .status.pending {
+      background: #fff7ed;
+      color: #b45309;
+    }
+
+    .sheet-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
     .sheet svg {
       width: 100%;
       height: 280px;
@@ -214,6 +333,53 @@
       border-radius: 8px;
       background: #fff;
       padding: 14px;
+    }
+
+    .engine-box,
+    .assistant-box {
+      margin-top: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 14px;
+    }
+
+    .engine-list {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      color: #344054;
+      font-size: 13px;
+    }
+
+    .engine-list li {
+      border: 1px solid #e4e7ec;
+      border-radius: 6px;
+      padding: 8px 9px;
+      background: #fcfcfd;
+    }
+
+    .assistant-box textarea {
+      width: 100%;
+      min-height: 88px;
+      resize: vertical;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 10px;
+      font: inherit;
+    }
+
+    .assistant-log {
+      min-height: 42px;
+      margin: 10px 0;
+      padding: 9px 10px;
+      border-radius: 6px;
+      background: #f8fafc;
+      color: #344054;
+      font-size: 12px;
+      line-height: 1.5;
     }
 
     .export-actions {
@@ -242,11 +408,86 @@
       color: #344054;
     }
 
+    .mini {
+      height: 30px;
+      padding: 0 10px;
+      font-size: 12px;
+    }
+
     .note {
       margin-top: 10px;
       color: var(--muted);
       font-size: 12px;
       line-height: 1.5;
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 20;
+      display: none;
+      place-items: center;
+      padding: 24px;
+      background: rgba(15, 23, 42, .56);
+    }
+
+    .modal.open {
+      display: grid;
+    }
+
+    .modal-panel {
+      width: min(1080px, 100%);
+      height: min(760px, 100%);
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, .22);
+    }
+
+    .modal-head {
+      min-height: 52px;
+      padding: 10px 12px 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .modal-tools {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .viewport {
+      position: relative;
+      overflow: hidden;
+      background: #eef2f6;
+      cursor: grab;
+    }
+
+    .viewport.dragging {
+      cursor: grabbing;
+    }
+
+    .zoom-content {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 920px;
+      padding: 28px;
+      transform-origin: 0 0;
+    }
+
+    .zoom-content svg {
+      width: 860px;
+      height: 420px;
+      background: #fff;
+      border: 1px solid var(--line);
     }
 
     @media (max-width: 1180px) {
@@ -263,6 +504,10 @@
       .drawing-grid {
         grid-template-columns: 1fr;
       }
+
+      .modal {
+        padding: 10px;
+      }
     }
   </style>
 </head>
@@ -271,6 +516,18 @@
     <aside>
       <h1>生产图生成工作台</h1>
       <p class="sub">把已有的效果图或结构草图，转成工厂能看懂的尺寸图、侧视图和刀版展开图。</p>
+
+      <h2>输入方式</h2>
+      <div class="input-mode" aria-label="输入方式">
+        <label class="mode-card">
+          <span><input type="radio" name="inputMode" value="render" checked>普通效果图 / 渲染图</span>
+          <p class="hint">无精确尺寸，识别结构模块后补充基准尺寸。</p>
+        </label>
+        <label class="mode-card">
+          <span><input type="radio" name="inputMode" value="dimensioned">甲方尺寸效果图 / 3D 标注图</span>
+          <p class="hint">读取已有尺寸标注，缺失参数可人工校准。</p>
+        </label>
+      </div>
 
       <h2>原始效果图 / 参考图</h2>
       <div class="upload">
@@ -283,6 +540,16 @@
       <div class="preview-box" id="imagePreview">
         <span class="hint">未上传参考图</span>
       </div>
+
+      <div class="detected-dims" id="detectedDims">
+        <h3>读取到的尺寸标注</h3>
+        <p class="hint">支持 m / mm 单位换算，缺失参数仍需人工校准。</p>
+        <div class="dim-chip-list" id="dimChipList"></div>
+        <button class="ghost" type="button" id="applyDetectedDims">应用到参数</button>
+      </div>
+
+      <h2 style="margin-top:18px;">识别模块</h2>
+      <div class="module-list" id="moduleList"></div>
     </aside>
 
     <section class="params">
@@ -343,8 +610,26 @@
           <option value="陈列架">陈列架</option>
           <option value="立牌">立牌</option>
           <option value="美陈装置">美陈装置</option>
+          <option value="门头 / 墙面装置">门头 / 墙面装置</option>
         </select>
       </label>
+
+      <div class="engine-box">
+        <h3>统一参数引擎</h3>
+        <ul class="engine-list">
+          <li>尺寸参数标准化：宽 / 高 / 深统一为 mm</li>
+          <li>材料与板厚逻辑：材料、厚度、承重规则统一处理</li>
+          <li>刀线规则：CUT / SLOT / HOLE / BLEED / SAFE 分层</li>
+          <li>可编辑矢量生成：输出 SVG / DXF / AI-CDR 兼容结构</li>
+        </ul>
+      </div>
+
+      <div class="assistant-box">
+        <h3>AI 微调助手</h3>
+        <textarea id="aiInput" placeholder="例如：把整体宽度改为4800mm；将主体材料改为10mm雪弗板；给底座增加4个安装孔；检查当前刀版是否缺少出血线"></textarea>
+        <div class="assistant-log" id="assistantLog">用于生产参数微调，回复后同步更新图纸状态。</div>
+        <button id="applyAi" type="button" class="secondary">应用微调</button>
+      </div>
 
       <div class="exports">
         <h3>导出生产文件</h3>
@@ -376,23 +661,52 @@
 
       <section class="drawing-grid">
         <article class="sheet">
-          <h3>A. 正面尺寸图 Front Elevation</h3>
+          <div class="sheet-head">
+            <h3>A. 正面尺寸图 Front Elevation</h3>
+            <div class="sheet-actions"><span class="status" data-status="front">已生成</span><button class="ghost mini" type="button" data-zoom="front">放大查看</button></div>
+          </div>
           <svg id="frontSvg" viewBox="0 0 640 300"></svg>
         </article>
         <article class="sheet">
-          <h3>B. 平面图 / 俯视图 Plan View</h3>
+          <div class="sheet-head">
+            <h3>B. 平面图 / 俯视图 Plan View</h3>
+            <div class="sheet-actions"><span class="status" data-status="plan">已生成</span><button class="ghost mini" type="button" data-zoom="plan">放大查看</button></div>
+          </div>
           <svg id="planSvg" viewBox="0 0 640 300"></svg>
         </article>
         <article class="sheet">
-          <h3>C. 侧视图 Side View</h3>
+          <div class="sheet-head">
+            <h3>C. 侧视图 Side View</h3>
+            <div class="sheet-actions"><span class="status" data-status="side">已生成</span><button class="ghost mini" type="button" data-zoom="side">放大查看</button></div>
+          </div>
           <svg id="sideSvg" viewBox="0 0 640 300"></svg>
         </article>
         <article class="sheet">
-          <h3>D. 刀版展开图 Die-line Layout</h3>
+          <div class="sheet-head">
+            <h3>D. 刀版展开图 Die-line Layout</h3>
+            <div class="sheet-actions"><span class="status" data-status="dieline">已生成</span><button class="ghost mini" type="button" data-zoom="dieline">放大查看</button></div>
+          </div>
           <svg id="dielineSvg" viewBox="0 0 640 300"></svg>
         </article>
       </section>
     </main>
+  </div>
+
+  <div class="modal" id="drawingModal" role="dialog" aria-modal="true" aria-label="图纸放大查看">
+    <div class="modal-panel">
+      <div class="modal-head">
+        <strong id="modalTitle">图纸</strong>
+        <div class="modal-tools">
+          <button class="ghost mini" type="button" id="zoomOut">缩小</button>
+          <button class="ghost mini" type="button" id="zoomIn">放大</button>
+          <button class="ghost mini" type="button" id="zoomReset">重置</button>
+          <button class="secondary mini" type="button" id="zoomClose">关闭</button>
+        </div>
+      </div>
+      <div class="viewport" id="viewport">
+        <div class="zoom-content" id="zoomContent"></div>
+      </div>
+    </div>
   </div>
 
   <script>
@@ -418,10 +732,60 @@
     const imagePreview = document.querySelector("#imagePreview");
     const exportSvg = document.querySelector("#exportSvg");
     const exportNote = document.querySelector("#exportNote");
+    const moduleList = document.querySelector("#moduleList");
+    const detectedDims = document.querySelector("#detectedDims");
+    const dimChipList = document.querySelector("#dimChipList");
+    const applyDetectedDims = document.querySelector("#applyDetectedDims");
+    const aiInput = document.querySelector("#aiInput");
+    const assistantLog = document.querySelector("#assistantLog");
+    const applyAi = document.querySelector("#applyAi");
+    const modal = document.querySelector("#drawingModal");
+    const modalTitle = document.querySelector("#modalTitle");
+    const viewport = document.querySelector("#viewport");
+    const zoomContent = document.querySelector("#zoomContent");
     const NS = "http://www.w3.org/2000/svg";
     const state = {
-      referenceUrl: ""
+      referenceUrl: "",
+      inputMode: "render",
+      selectedModule: "counter",
+      detected: [],
+      statuses: {
+        front: "已生成",
+        plan: "已生成",
+        side: "已生成",
+        dieline: "已生成"
+      }
     };
+
+    const modules = [
+      { id: "counter", no: "01", name: "前台 / 堆头盒体", material: "雪弗板", qty: 1 },
+      { id: "backwall", no: "02", name: "背景板 / 背墙", material: "KT板", qty: 2 },
+      { id: "sidepanel", no: "03", name: "侧板 / 侧挡", material: "亚克力", qty: 2 },
+      { id: "sign", no: "04", name: "异形牌 / LOGO牌", material: "PVC", qty: 3 },
+      { id: "base", no: "05", name: "地台 / 底座", material: "木结构", qty: 1 },
+      { id: "shopfrontFrame", no: "06", name: "门头框 / 墙面框体", material: "木结构", qty: 1 },
+      { id: "signboardPanel", no: "07", name: "招牌面板 / 灯箱面", material: "亚克力", qty: 1 },
+      { id: "countertop", no: "08", name: "台面 / 窗台板", material: "雪弗板", qty: 1 },
+      { id: "edgeWrap", no: "09", name: "包边侧板", material: "PVC", qty: 2 }
+    ];
+
+    const titles = {
+      front: "正面尺寸图 Front Elevation",
+      plan: "平面图 / 俯视图 Plan View",
+      side: "侧视图 Side View",
+      dieline: "刀版展开图 Die-line Layout"
+    };
+
+    let zoom = 1;
+    let panX = 70;
+    let panY = 40;
+    let dragging = false;
+    let startX = 0;
+    let startY = 0;
+
+    function currentModule() {
+      return modules.find((item) => item.id === state.selectedModule) || modules[0];
+    }
 
     function data() {
       return {
@@ -485,6 +849,10 @@
       if (vertical) {
         line(svg, x1 - 8, y1, x1 + 8, y1);
         line(svg, x2 - 8, y2, x2 + 8, y2);
+        line(svg, x1, y1, x1 - 4, y1 + 8);
+        line(svg, x1, y1, x1 + 4, y1 + 8);
+        line(svg, x2, y2, x2 - 4, y2 - 8);
+        line(svg, x2, y2, x2 + 4, y2 - 8);
         const tx = x1 - 20;
         const ty = (y1 + y2) / 2;
         const labelNode = node("text", {
@@ -500,6 +868,10 @@
       } else {
         line(svg, x1, y1 - 8, x1, y1 + 8);
         line(svg, x2, y2 - 8, x2, y2 + 8);
+        line(svg, x1, y1, x1 + 8, y1 - 4);
+        line(svg, x1, y1, x1 + 8, y1 + 4);
+        line(svg, x2, y2, x2 - 8, y2 - 4);
+        line(svg, x2, y2, x2 - 8, y2 + 4);
         text(svg, (x1 + x2) / 2, y1 - 10, label, 12, "middle", "#111", 700);
       }
     }
@@ -564,6 +936,31 @@
     function renderSide(d) {
       const svg = svgs.side;
       clear(svg);
+      if (d.materialType === "门头 / 墙面装置") {
+        const wallX = 245;
+        const wallY = 42;
+        const wallW = 48;
+        const wallH = 202;
+        const frameDepth = Math.max(75, Math.min(220, d.depth));
+        const scaledDepth = Math.max(70, Math.min(180, frameDepth * .35));
+        rect(svg, wallX, wallY, wallW, wallH, "#111", 1.4);
+        rect(svg, wallX + 6, wallY + 12, wallW - 12, wallH - 24, "#98a2b3", 1, "6 5");
+        rect(svg, wallX - scaledDepth, wallY + 28, scaledDepth, 44, "#111", 1.4);
+        rect(svg, wallX - scaledDepth, wallY + 72, scaledDepth, 118, "#111", 1.4);
+        rect(svg, wallX - scaledDepth - 42, wallY + 150, scaledDepth + 42, 22, "#111", 1.4);
+        line(svg, wallX - scaledDepth, wallY + 72, wallX, wallY + 72, "#f59e0b", 2);
+        line(svg, wallX - scaledDepth, wallY + 190, wallX, wallY + 190, "#f59e0b", 2);
+        text(svg, wallX + wallW + 12, wallY + 108, "墙体 / 背板", 12, "start", "#344054", 700);
+        text(svg, wallX - scaledDepth / 2, wallY + 56, "门头框", 12, "middle", "#344054", 700);
+        text(svg, wallX - scaledDepth / 2, wallY + 126, "招牌面板", 12, "middle", "#344054", 700);
+        text(svg, wallX - scaledDepth / 2 - 18, wallY + 166, "台面", 12, "middle", "#344054", 700);
+        dim(svg, wallX + wallW + 42, wallY, wallX + wallW + 42, wallY + wallH, `${d.height} mm`, true);
+        dim(svg, wallX - scaledDepth, wallY + wallH + 28, wallX, wallY + wallH + 28, `${frameDepth} mm`);
+        dim(svg, wallX - scaledDepth - 42, wallY + wallH + 54, wallX, wallY + wallH + 54, `${Math.max(300, Math.round(d.depth * .7))} mm 台面深度`);
+        text(svg, 92, 34, "门头 / 墙面装置侧视结构", 13, "start", "#344054", 700);
+        text(svg, 92, 54, "表达凸出厚度、墙体关系、台面深度和包边位置", 11, "start", "#667085", 700);
+        return;
+      }
       const x = 160;
       const y = 48;
       const w = 230;
@@ -584,57 +981,202 @@
     function renderDieline(d) {
       const svg = svgs.dieline;
       clear(svg);
+      const mod = currentModule();
       const cut = "#e11d48";
       const slot = "#f59e0b";
       const hole = "#7c3aed";
       const bleed = "#16a34a";
       const safe = "#98a2b3";
-      rect(svg, 58, 54, 230, 96, bleed, 1, "6 5");
-      rect(svg, 66, 62, 214, 80, cut, 2);
+      text(svg, 34, 28, `${mod.no} ${mod.name}`, 14, "start", "#111", 700);
+      text(svg, 34, 48, `${state.inputMode === "dimensioned" ? "尺寸标注图路径" : "普通效果图路径"} / ${d.material} / 厚 ${d.thickness}mm / 数量 ${mod.qty}`, 11, "start", "#344054", 700);
+
       if (state.referenceUrl) {
         svg.appendChild(node("image", {
           href: state.referenceUrl,
-          x: 70,
-          y: 66,
-          width: 206,
-          height: 72,
+          x: 34,
+          y: 62,
+          width: 130,
+          height: 95,
           preserveAspectRatio: "xMidYMid meet",
-          opacity: 0.58
+          opacity: 0.72
         }));
+        rect(svg, 34, 62, 130, 95, "#1d4ed8", 1.5);
+        text(svg, 99, 176, "上传原图参考", 11, "middle", "#1d4ed8", 700);
+        line(svg, 178, 110, 210, 110, "#1d4ed8", 2);
+        line(svg, 202, 102, 212, 110, "#1d4ed8", 2);
+        line(svg, 202, 118, 212, 110, "#1d4ed8", 2);
+      } else {
+        rect(svg, 34, 62, 130, 95, safe, 1, "6 5");
+        text(svg, 99, 108, "等待上传参考图", 12, "middle", "#667085", 700);
       }
-      rect(svg, 82, 78, 182, 48, safe, 1, "6 5");
-      text(svg, 173, state.referenceUrl ? 154 : 112, state.referenceUrl ? "背板画面层" : "背板", 13, "middle", "#344054", 700);
-      rect(svg, 326, 54, 78, 156, cut, 2);
-      text(svg, 365, 132, "侧板", 13, "middle", "#344054", 700);
-      rect(svg, 430, 54, 78, 156, cut, 2);
-      text(svg, 469, 132, "侧板", 13, "middle", "#344054", 700);
-      rect(svg, 66, 190, 214, 42, cut, 2);
-      text(svg, 173, 216, "底座板", 13, "middle", "#344054", 700);
-      rect(svg, 326, 230, 180, 36, cut, 2);
-      text(svg, 416, 253, "层板", 13, "middle", "#344054", 700);
-      line(svg, 350, 230, 350, 266, slot, 3);
-      line(svg, 482, 230, 482, 266, slot, 3);
-      [96, 250, 346, 384, 450, 488].forEach((cx, index) => {
-        const cy = index < 2 ? 82 : 82 + (index % 2) * 126;
-        svg.appendChild(node("circle", { cx, cy, r: 6, fill: "none", stroke: hole, "stroke-width": 2 }));
-      });
-      const decor = node("path", {
-        d: "M 548 72 C 584 40, 612 58, 604 96 C 626 122, 594 158, 558 140 C 524 158, 506 118, 528 96 C 512 76, 530 54, 548 72 Z",
-        fill: "none",
-        stroke: cut,
-        "stroke-width": 2
-      });
-      svg.appendChild(decor);
-      text(svg, 565, 116, "异形装饰件", 12, "middle", "#344054", 700);
-      text(svg, 62, 34, `BLEED ${d.bleed} mm / 厚 ${d.thickness} mm / ${d.material}`, 12, "start", "#344054", 700);
+
+      if (mod.id === "shopfrontFrame") {
+        rect(svg, 230, 72, 252, 38, bleed, 1, "6 5");
+        rect(svg, 240, 82, 232, 18, cut, 2);
+        rect(svg, 230, 126, 54, 118, bleed, 1, "6 5");
+        rect(svg, 240, 136, 34, 98, cut, 2);
+        rect(svg, 428, 126, 54, 118, bleed, 1, "6 5");
+        rect(svg, 438, 136, 34, 98, cut, 2);
+        line(svg, 278, 82, 278, 100, slot, 2);
+        line(svg, 434, 82, 434, 100, slot, 2);
+        dim(svg, 240, 122, 472, 122, `${Math.max(1900, Math.round(d.width * .5))} mm`);
+        dim(svg, 506, 136, 506, 234, `${Math.round(d.height * .7)} mm`, true);
+      } else if (mod.id === "signboardPanel") {
+        rect(svg, 226, 76, 300, 96, bleed, 1, "6 5");
+        rect(svg, 238, 88, 276, 72, cut, 2);
+        rect(svg, 256, 104, 240, 40, safe, 1, "6 5");
+        svg.appendChild(node("circle", { cx: 268, cy: 124, r: 6, fill: "none", stroke: hole, "stroke-width": 2 }));
+        svg.appendChild(node("circle", { cx: 486, cy: 124, r: 6, fill: "none", stroke: hole, "stroke-width": 2 }));
+        dim(svg, 238, 214, 514, 214, `${Math.max(1900, Math.round(d.width * .55))} mm`);
+        dim(svg, 548, 88, 548, 160, "700 mm", true);
+      } else if (mod.id === "countertop") {
+        rect(svg, 230, 92, 286, 74, bleed, 1, "6 5");
+        rect(svg, 240, 102, 266, 54, cut, 2);
+        line(svg, 270, 102, 270, 156, slot, 2);
+        line(svg, 476, 102, 476, 156, slot, 2);
+        dim(svg, 240, 214, 506, 214, `${Math.max(2100, Math.round(d.width * .45))} mm`);
+        dim(svg, 548, 102, 548, 156, "300 mm", true);
+      } else if (mod.id === "edgeWrap") {
+        rect(svg, 250, 72, 94, 166, bleed, 1, "6 5");
+        rect(svg, 260, 82, 74, 146, cut, 2);
+        rect(svg, 390, 72, 94, 166, bleed, 1, "6 5");
+        rect(svg, 400, 82, 74, 146, cut, 2);
+        dim(svg, 260, 258, 334, 258, "75 mm");
+        dim(svg, 510, 82, 510, 228, `${Math.round(d.height * .7)} mm`, true);
+      } else if (mod.id === "backwall") {
+        rect(svg, 230, 72, 250, 128, bleed, 1, "6 5");
+        rect(svg, 240, 82, 230, 108, cut, 2);
+        rect(svg, 260, 102, 190, 68, safe, 1, "6 5");
+        line(svg, 278, 82, 278, 190, slot, 2);
+        line(svg, 432, 82, 432, 190, slot, 2);
+        dim(svg, 240, 230, 470, 230, `${Math.round(d.width * .7)} mm`);
+        dim(svg, 510, 82, 510, 190, `${d.height} mm`, true);
+      } else if (mod.id === "sidepanel") {
+        svg.appendChild(node("path", { d: "M 252 82 H382 L452 190 H252 Z", fill: "none", stroke: cut, "stroke-width": 2 }));
+        svg.appendChild(node("path", { d: "M 238 66 H392 L472 206 H238 Z", fill: "none", stroke: bleed, "stroke-width": 1, "stroke-dasharray": "6 5" }));
+        line(svg, 282, 108, 422, 108, slot, 2);
+        line(svg, 302, 148, 440, 148, slot, 2);
+        svg.appendChild(node("circle", { cx: 350, cy: 170, r: 8, fill: "none", stroke: hole, "stroke-width": 2 }));
+        dim(svg, 252, 230, 452, 230, `${d.depth} mm`);
+        dim(svg, 505, 82, 505, 190, `${Math.round(d.height * .62)} mm`, true);
+      } else if (mod.id === "sign") {
+        svg.appendChild(node("path", { d: "M 284 110 C 284 64, 338 60, 362 82 C 390 58, 458 70, 450 128 C 484 142, 466 188, 412 184 L314 184 C 266 182, 250 136, 284 110 Z", fill: "none", stroke: cut, "stroke-width": 2 }));
+        svg.appendChild(node("path", { d: "M 270 100 C 270 54, 338 46, 364 72 C 398 46, 474 62, 466 132 C 508 146, 482 204, 410 202 L310 202 C 248 200, 226 132, 270 100 Z", fill: "none", stroke: bleed, "stroke-width": 1, "stroke-dasharray": "6 5" }));
+        rect(svg, 350, 184, 34, 52, slot, 2);
+        svg.appendChild(node("circle", { cx: 330, cy: 136, r: 8, fill: "none", stroke: hole, "stroke-width": 2 }));
+        svg.appendChild(node("circle", { cx: 414, cy: 136, r: 8, fill: "none", stroke: hole, "stroke-width": 2 }));
+        dim(svg, 270, 246, 466, 246, `${Math.round(d.width * .18)} mm`);
+      } else if (mod.id === "base") {
+        rect(svg, 230, 82, 280, 88, cut, 2);
+        rect(svg, 216, 68, 308, 116, bleed, 1, "6 5");
+        rect(svg, 260, 102, 220, 18, slot, 2);
+        rect(svg, 260, 138, 220, 18, slot, 2);
+        rect(svg, 250, 94, 240, 70, safe, 1, "6 5");
+        dim(svg, 230, 220, 510, 220, `${d.width} mm`);
+        dim(svg, 550, 82, 550, 170, `${d.depth} mm`, true);
+      } else {
+        rect(svg, 230, 74, 170, 110, bleed, 1, "6 5");
+        rect(svg, 240, 84, 150, 90, cut, 2);
+        rect(svg, 402, 84, 64, 90, cut, 2);
+        rect(svg, 258, 102, 114, 52, safe, 1, "6 5");
+        line(svg, 282, 84, 282, 174, slot, 2);
+        line(svg, 350, 84, 350, 174, slot, 2);
+        line(svg, 402, 128, 466, 128, slot, 2);
+        svg.appendChild(node("circle", { cx: 294, cy: 128, r: 7, fill: "none", stroke: hole, "stroke-width": 2 }));
+        svg.appendChild(node("circle", { cx: 338, cy: 128, r: 7, fill: "none", stroke: hole, "stroke-width": 2 }));
+        dim(svg, 240, 224, 390, 224, `${Math.round(d.width * .3)} mm`);
+        dim(svg, 402, 224, 466, 224, `${d.depth} mm`);
+      }
+
+      text(svg, 230, 268, "CUT / SLOT / HOLE / BLEED / SAFE 已按当前模块同步", 11, "start", "#344054", 700);
     }
 
     function renderAll() {
       const d = data();
+      renderModules();
+      renderStatuses();
+      renderDetectedDims();
       renderFront(d);
       renderPlan(d);
       renderSide(d);
       renderDieline(d);
+    }
+
+    function setStatuses(next) {
+      state.statuses = { ...state.statuses, ...next };
+      renderStatuses();
+    }
+
+    function renderStatuses() {
+      Object.entries(state.statuses).forEach(([key, value]) => {
+        const element = document.querySelector(`[data-status="${key}"]`);
+        if (!element) return;
+        element.textContent = value;
+        element.classList.toggle("pending", value === "待重新生成");
+      });
+    }
+
+    function renderDetectedDims() {
+      const visible = state.inputMode === "dimensioned";
+      detectedDims.classList.toggle("active", visible);
+      if (!visible) return;
+      dimChipList.innerHTML = state.detected.length
+        ? state.detected.map((item) => `<span class="dim-chip">${item.label}：${item.raw} → ${item.mm}mm</span>`).join("")
+        : `<span class="hint">上传甲方尺寸效果图后显示读取结果</span>`;
+    }
+
+    function simulateDimensionRead() {
+      const type = fields.materialType.value;
+      if (type === "门头 / 墙面装置") {
+        state.detected = [
+          { key: "height", label: "整体高度", raw: "3600mm", mm: 3600 },
+          { key: "width", label: "门洞/框体宽", raw: "2350mm", mm: 2350 },
+          { key: "depth", label: "门头凸出厚度", raw: "75mm", mm: 75 },
+          { key: "signWidth", label: "招牌宽度", raw: "1900mm", mm: 1900 },
+          { key: "counterDepth", label: "台面深度", raw: "300mm", mm: 300 }
+        ];
+      } else if (type === "美陈装置") {
+        state.detected = [
+          { key: "height", label: "通道总高", raw: "5.5m", mm: 5500 },
+          { key: "width", label: "通道宽度", raw: "4.85m", mm: 4850 }
+        ];
+      } else if (type === "立牌") {
+        state.detected = [
+          { key: "height", label: "装置高度", raw: "3.1m", mm: 3100 },
+          { key: "width", label: "牌面宽度", raw: "1.2m", mm: 1200 }
+        ];
+      } else {
+        state.detected = [
+          { key: "width", label: "整体宽度", raw: "13.9m", mm: 13900 },
+          { key: "height", label: "整体高度", raw: "6.1m", mm: 6100 },
+          { key: "depth", label: "局部高度/深度参考", raw: "3.1m", mm: 3100 }
+        ];
+      }
+      renderDetectedDims();
+    }
+
+    function applyDetectedDimensions() {
+      state.detected.forEach((item) => {
+        if (fields[item.key]) fields[item.key].value = item.mm;
+      });
+      assistantLog.textContent = "已将读取到的 m 单位尺寸换算为 mm，并应用到统一参数引擎。缺失的板厚、卡槽、孔位和出血仍需人工校准。";
+      setStatuses({ front: "已更新", plan: "已更新", side: "已更新", dieline: "待重新生成" });
+      renderAll();
+    }
+
+    function renderModules() {
+      moduleList.innerHTML = modules.map((item) => `
+        <button type="button" class="module-button ${item.id === state.selectedModule ? "active" : ""}" data-module="${item.id}">
+          ${item.no} ${item.name}<br><span class="hint">${item.material} / 数量 ${item.qty}</span>
+        </button>
+      `).join("");
+      moduleList.querySelectorAll("[data-module]").forEach((button) => {
+        button.addEventListener("click", () => {
+          state.selectedModule = button.dataset.module;
+          setStatuses({ dieline: "已更新" });
+          renderAll();
+        });
+      });
     }
 
     function buildSvgExport() {
@@ -692,6 +1234,146 @@
       setTimeout(() => exportNote.textContent = "SVG 导出为前端 demo 可用；其他格式用于表达产品方向。", 1600);
     }
 
+    function downloadTextFile(filename, content, mime) {
+      const blob = new Blob([content], { type: mime });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    function dxfExport() {
+      const d = data();
+      return `0
+SECTION
+2
+ENTITIES
+0
+LINE
+8
+CUT
+10
+0
+20
+0
+11
+${d.width}
+21
+0
+0
+LINE
+8
+CUT
+10
+${d.width}
+20
+0
+11
+${d.width}
+21
+${d.height}
+0
+LINE
+8
+CUT
+10
+${d.width}
+20
+${d.height}
+11
+0
+21
+${d.height}
+0
+LINE
+8
+CUT
+10
+0
+20
+${d.height}
+11
+0
+21
+0
+0
+EOF`;
+    }
+
+    function pdfExportText() {
+      const d = data();
+      return `PDF 尺寸图 Demo
+物料类型：${d.materialType}
+当前模块：${currentModule().name}
+整体尺寸：${d.width} x ${d.height} x ${d.depth} mm
+材料：${d.material}
+板厚：${d.thickness} mm
+出血：${d.bleed} mm
+说明：当前阶段暂不包含 CAD / DWG / 3D 文件。`;
+    }
+
+    function applyAiCommand() {
+      const textValue = aiInput.value.trim();
+      if (!textValue) return;
+      const widthMatch = textValue.match(/宽度?改为?\s*(\d+)/);
+      const heightMatch = textValue.match(/高度?改为?\s*(\d+)/);
+      const depthMatch = textValue.match(/深度?改为?\s*(\d+)/);
+      const bleedMatch = textValue.match(/出血(?:线)?(?:改为|修改为)?\s*(\d+)/);
+      const shelfMatch = textValue.match(/层板间距(?:改为|调整为)?\s*(\d+)/);
+      const slotMatch = textValue.match(/卡槽(?:改为|调整为|增加)?\s*(\d+)/);
+      const holeMatch = textValue.match(/增加\s*(\d+)\s*个安装孔|安装孔.*?(\d+)/);
+      const materialMatch = textValue.match(/材料改为([^，。,.]+)|材料改成([^，。,.]+)/);
+      const shopfrontDepthMatch = textValue.match(/门头(?:厚度|凸出|深度)(?:改为|调整为)?\s*(\d+)/);
+      const counterDepthMatch = textValue.match(/台面(?:深度|宽度)(?:改为|调整为)?\s*(\d+)/);
+      const signWidthMatch = textValue.match(/招牌(?:宽度)?(?:改为|调整为)?\s*(\d+)/);
+      const notes = [];
+      if (widthMatch) { fields.width.value = widthMatch[1]; notes.push(`宽度已更新为 ${widthMatch[1]}mm`); }
+      if (heightMatch) { fields.height.value = heightMatch[1]; notes.push(`高度已更新为 ${heightMatch[1]}mm`); }
+      if (depthMatch) { fields.depth.value = depthMatch[1]; notes.push(`深度已更新为 ${depthMatch[1]}mm`); }
+      if (bleedMatch) { fields.bleed.value = bleedMatch[1]; notes.push(`出血已更新为 ${bleedMatch[1]}mm`); }
+      if (slotMatch) notes.push(`卡槽要求已记录为 ${slotMatch[1]}mm`);
+      if (holeMatch) notes.push(`安装孔要求已记录：增加 ${holeMatch[1] || holeMatch[2]} 个`);
+      if (shelfMatch) notes.push(`层板间距已记录为 ${shelfMatch[1]}mm`);
+      if (shopfrontDepthMatch) { fields.depth.value = shopfrontDepthMatch[1]; state.selectedModule = "shopfrontFrame"; notes.push(`门头凸出厚度已更新为 ${shopfrontDepthMatch[1]}mm`); }
+      if (counterDepthMatch) { state.selectedModule = "countertop"; notes.push(`台面深度要求已记录为 ${counterDepthMatch[1]}mm`); }
+      if (signWidthMatch) { state.selectedModule = "signboardPanel"; notes.push(`招牌宽度要求已记录为 ${signWidthMatch[1]}mm`); }
+      if (/检查.*出血线|出血线.*检查/.test(textValue)) notes.push("当前刀版已包含 BLEED 出血线，建议导出前复核出血值。");
+      if (/工厂.*备注|制作备注/.test(textValue)) notes.push("工厂备注：按图复核材料、板厚、卡槽方向、孔位中心距和出血范围，批量生产前先打样确认。");
+      if (materialMatch) {
+        const value = (materialMatch[1] || materialMatch[2]).trim();
+        const thickness = value.match(/(\d+)mm/);
+        if (/雪弗板/.test(value)) fields.material.value = "雪弗板";
+        if (/KT板/.test(value)) fields.material.value = "KT板";
+        if (/亚克力/.test(value)) fields.material.value = "亚克力";
+        if (/瓦楞纸/.test(value)) fields.material.value = "瓦楞纸";
+        if (thickness) fields.thickness.value = thickness[1];
+        notes.push(`材料要求已更新：${value}`);
+      }
+      if (!notes.length) notes.push("已记录微调要求，当前模块刀版已重新渲染。");
+      assistantLog.textContent = notes.join("；");
+      aiInput.value = "";
+      setStatuses({ front: "已更新", plan: "已更新", side: "待重新生成", dieline: "已更新" });
+      renderAll();
+    }
+
+    function applyZoomTransform() {
+      zoomContent.style.transform = `translate(${panX}px, ${panY}px) scale(${zoom})`;
+    }
+
+    function openModal(type) {
+      modalTitle.textContent = titles[type];
+      zoomContent.innerHTML = svgs[type].outerHTML;
+      zoom = 1;
+      panX = 70;
+      panY = 40;
+      applyZoomTransform();
+      modal.classList.add("open");
+    }
+
     imageUpload.addEventListener("change", () => {
       const file = imageUpload.files && imageUpload.files[0];
       if (!file) return;
@@ -702,16 +1384,96 @@
       img.src = state.referenceUrl;
       img.alt = "原始效果图 / 参考图";
       imagePreview.appendChild(img);
+      if (state.inputMode === "dimensioned") simulateDimensionRead();
+      setStatuses({ front: "已更新", plan: "已更新", side: "已更新", dieline: "已更新" });
       renderAll();
     });
 
-    Object.values(fields).forEach((field) => field.addEventListener("input", renderAll));
-    exportSvg.addEventListener("click", downloadSvg);
-    document.querySelectorAll("[data-demo-export]").forEach((button) => {
-      button.addEventListener("click", () => {
-        exportNote.textContent = "该格式为 demo 展示按钮，产品版可接入实际导出流程。";
+    Object.values(fields).forEach((field) => field.addEventListener("input", () => {
+      if (field === fields.materialType && state.inputMode === "dimensioned" && state.referenceUrl) {
+        simulateDimensionRead();
+      }
+      if (field === fields.materialType && fields.materialType.value === "美陈装置") {
+        assistantLog.textContent = "美陈装置会优先输出空间尺寸参考、模块清单和安装备注，不强行套用盒体刀版。";
+      }
+      if (field === fields.materialType && fields.materialType.value === "门头 / 墙面装置") {
+        state.selectedModule = "shopfrontFrame";
+        assistantLog.textContent = "门头 / 墙面装置会优先拆分门头框、招牌面板、台面、包边侧板，并生成对应侧视与刀版。";
+      }
+      setStatuses({ front: "已更新", plan: "已更新", side: "已更新", dieline: "待重新生成" });
+      renderAll();
+    }));
+    document.querySelectorAll("input[name='inputMode']").forEach((radio) => {
+      radio.addEventListener("change", () => {
+        state.inputMode = radio.value;
+        assistantLog.textContent = radio.value === "dimensioned"
+          ? "已切换为甲方尺寸图路径：优先读取已有尺寸，缺失参数人工校准。"
+          : "已切换为普通效果图路径：识别模块后需要补充基准尺寸。";
+        if (radio.value === "dimensioned" && state.referenceUrl) simulateDimensionRead();
+        setStatuses({ front: "已更新", plan: "已更新", side: "已更新", dieline: "已更新" });
+        renderAll();
       });
     });
+    applyDetectedDims.addEventListener("click", applyDetectedDimensions);
+    exportSvg.addEventListener("click", downloadSvg);
+    applyAi.addEventListener("click", applyAiCommand);
+    document.querySelectorAll("[data-demo-export]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const label = button.textContent;
+        if (label.includes("PDF")) {
+          downloadTextFile("dimension-drawing-demo.pdf.txt", pdfExportText(), "text/plain;charset=utf-8");
+        } else if (label.includes("DXF")) {
+          downloadTextFile("cutting-file-demo.dxf", dxfExport(), "application/dxf");
+        } else {
+          downloadTextFile("ai-cdr-compatible-demo.ai", buildSvgExport(), "application/postscript");
+        }
+        exportNote.textContent = `${label} 已生成 demo 文件；当前阶段暂不包含 CAD / DWG / 3D。`;
+      });
+    });
+
+    document.querySelectorAll("[data-zoom]").forEach((button) => {
+      button.addEventListener("click", () => openModal(button.dataset.zoom));
+    });
+    document.querySelector("#zoomIn").addEventListener("click", () => {
+      zoom = Math.min(3, zoom + .2);
+      applyZoomTransform();
+    });
+    document.querySelector("#zoomOut").addEventListener("click", () => {
+      zoom = Math.max(.5, zoom - .2);
+      applyZoomTransform();
+    });
+    document.querySelector("#zoomReset").addEventListener("click", () => {
+      zoom = 1;
+      panX = 70;
+      panY = 40;
+      applyZoomTransform();
+    });
+    document.querySelector("#zoomClose").addEventListener("click", () => modal.classList.remove("open"));
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) modal.classList.remove("open");
+    });
+    viewport.addEventListener("pointerdown", (event) => {
+      dragging = true;
+      viewport.classList.add("dragging");
+      startX = event.clientX - panX;
+      startY = event.clientY - panY;
+      viewport.setPointerCapture(event.pointerId);
+    });
+    viewport.addEventListener("pointermove", (event) => {
+      if (!dragging) return;
+      panX = event.clientX - startX;
+      panY = event.clientY - startY;
+      applyZoomTransform();
+    });
+    viewport.addEventListener("pointerup", () => {
+      dragging = false;
+      viewport.classList.remove("dragging");
+    });
+    viewport.addEventListener("wheel", (event) => {
+      event.preventDefault();
+      zoom = Math.max(.5, Math.min(3, zoom + (event.deltaY < 0 ? .12 : -.12)));
+      applyZoomTransform();
+    }, { passive: false });
 
     renderAll();
   </script>
